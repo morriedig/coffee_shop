@@ -1,0 +1,21 @@
+<%= form_for @shop do |shop| %>
+  <div>
+    <%= shop.label :name, "Name : " %> <br>
+    <%= shop.text_field :name %>
+  </div>
+  <div>
+    <%= shop.label :phone, "Phone : " %> <br>
+    <%= shop.text_field :phone %>
+  </div>
+  <div>
+    <%= shop.label :description, "Description : " %> <br>
+    <%= shop.text_area :description %>
+  </div>
+  <div>
+    <%= shop.label :photo, "Photo : " %> <br>
+    <%= shop.file_field :photo %>
+  </div>
+  <div>
+    <%= shop.submit "Submit" %>
+  </div>
+<% end %>

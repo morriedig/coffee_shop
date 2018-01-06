@@ -1,0 +1,10 @@
+<h1>This is shop index</h1>
+<div class="new_shop">
+  <%= render :partial => "form", :locals => {shop: @shop} %>
+</div>
+
+<ul id="shops">
+  <% @shops.each do |shop| %>
+    <%= render :partial => "shop_list", :locals => {shop: shop} %>
+  <% end %>
+</ul>
