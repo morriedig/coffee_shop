@@ -1,0 +1,23 @@
+<% if current_user %>
+Hi, <%= current_user.email %>
+  <%= link_to('登出', destroy_user_session_path, method: :delete) %> |
+  <%= link_to('修改密碼', edit_user_registration_path) %>
+<% else %>
+  <%= link_to('註冊', new_user_registration_path) %> |
+  <%= link_to('登入', new_user_session_path) %>
+<% end %>
+
+<h1>This is admin's shop index</h1>
+<div>
+  
+</div>
+
+<div class="new_shop">
+  <%= render :partial => "form", :locals => {shop: @new_shop} %>
+</div>
+
+<ul id="shop_list">
+  <% @shops.each do |shop| %>
+    <%= render :partial => "shop_list", :locals => {shop: shop} %>
+  <% end %>
+</ul>

@@ -1,0 +1,21 @@
+<li id="shop-<%= shop.id %>">
+  <% if shop.photo %>
+   <%= shop.photo %>
+  <% end %>
+  <%= shop.name %>
+  <%= shop.phone %>
+  <%= shop.description %>
+  <%= link_to "Edit", edit_admin_shop_path(shop), remote: true %>
+  <%= link_to "Delete", admin_shop_path(shop), method: :delete, remote: true %>
+  
+  <%= form_for [:admin, Position.new], remote: true do |position| %>
+    <%= hidden_field_tag(:shop_id, shop.id) %>
+    <%= position.text_field :address %>
+    <%= position.submit "Submit" %>
+  <% end %>
+  <ol id="position_list-<%= shop.id %>">
+    <% shop.positions.each do |position| %>
+      <%= render :partial => 'admin/positions/position_list', :locals => {position: position} %>
+    <% end %>
+  </ol>
+</li>

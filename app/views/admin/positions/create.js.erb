@@ -1,0 +1,2 @@
+$('#position_list-<%= @position.shop_id %>').append("<%=j render :partial => 'position_list', :locals => {position: @position} %>");
+$('.new_position').trigger("reset");

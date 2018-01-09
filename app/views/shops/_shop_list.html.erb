@@ -1,6 +1,11 @@
 <li id="shop-<%= shop.id %>">
+<% if shop.photo.url != nil %>
   <%= image_tag shop.photo.url %>
-  <%= shop.name %>
+<% end %> 
+  <%= link_to shop.name, shop_path(shop) %>
   <%= shop.phone %>
   <%= shop.description %>
+  <% shop.positions.each do |position| %>
+    <%= position.address %>
+  <% end %>
 </li>

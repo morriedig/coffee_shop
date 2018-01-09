@@ -1,0 +1,5 @@
+<%= form_for [:admin, Position.new], remote: true do |position| %>
+  <%= hidden_field_tag(:shop_id, shop.id) %>
+  <%= position.text_field :address %>
+  <%= position.submit "Submit" %>
+<% end %>

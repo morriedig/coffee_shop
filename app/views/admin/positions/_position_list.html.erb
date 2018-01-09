@@ -1,0 +1,6 @@
+<li id="position-<%= position.id %>" >
+  <%= position.address %>
+  <%= position.latitude %>
+  <%= position.longitude %>
+  <%= link_to "Delete", admin_position_path(position), method: :delete, remote: true %>
+</li>
