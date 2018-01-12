@@ -1,11 +1,25 @@
-<li id="shop-<%= shop.id %>">
-<% if shop.photo.url != nil %>
-  <%= image_tag shop.photo.url %>
-<% end %> 
-  <%= link_to shop.name, shop_path(shop) %>
-  <%= shop.phone %>
-  <%= shop.description %>
-  <% shop.positions.each do |position| %>
-    <%= position.address %>
-  <% end %>
-</li>
+
+  <div class="col-4" style="margin-bottom: 2rem;" >
+    <div class="card  border-primary" id="shop-<%= shop.id %>">
+      <% if shop.photo.url != nil %>
+        <%= image_tag shop.photo.url, class: "card-img-top img-thumbnail", alt: "Shop image" %>
+      <% end %> 
+
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to shop.name, shop_path(shop) %></h5>
+        <p class="card-text"><%= shop.description %></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><%= shop.phone %></small>
+        <small class="text-muted">
+          <% shop.positions.each do |position| %>
+            <%= position.address %>
+          <% end %>
+        </small>
+      </div>
+    </div>    
+  </div>
+
+    
+
+

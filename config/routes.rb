@@ -7,10 +7,10 @@ Rails.application.routes.draw do
     resources :shops
     resources :positions, only: [:create, :destroy]
 
-    root "shop#index"
+    root "shops#index"
   end
 
 
-  root "shop#index"
+  root "shops#index"
 
 end
