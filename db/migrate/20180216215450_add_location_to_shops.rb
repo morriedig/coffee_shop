@@ -1,0 +1,7 @@
+class AddLocationToShops < ActiveRecord::Migration[5.1]
+  def change
+    add_column :shops, :latitude, :float
+    add_column :shops, :longitude, :float
+    add_column :shops, :address, :string
+  end
+end

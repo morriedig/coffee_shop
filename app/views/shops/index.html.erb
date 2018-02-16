@@ -31,5 +31,27 @@
       <% end %>
     </div>
   </div>
-
 </div>
+
+<script type="text/javascript" src="https://cafenomad.tw/api/v1.2/cafes"></script>
+<script type="text/javascript" src="https://uinames.com/api/?ext&region=england"></script>
+
+<script type="text/javascript">
+  $(function(){
+    const url = "https://cafenomad.tw/api/v1.2/cafes";
+
+    function getshop(){
+      $.ajax({
+        url: url,
+        type: "GET",
+        success: (result) => {
+          // var str = result.age
+          console.log(result);
+        }
+      })
+    }
+
+    getshop();
+
+  })
+</script>

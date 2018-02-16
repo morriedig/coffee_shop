@@ -15,7 +15,7 @@ class ShopsController < ApplicationController
 
   def show
     find_shop
-    @hash = Gmaps4rails.build_markers(@shop.positions) do |gmap, marker|
+    @hash = Gmaps4rails.build_markers(@shop) do |gmap, marker|
        marker.lat gmap.latitude
        marker.lng gmap.longitude
        marker.infowindow gmap.address
