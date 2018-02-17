@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180216215450) do
+ActiveRecord::Schema.define(version: 20180217122420) do
+
+  create_table "collections", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_collections_on_shop_id"
+    t.index ["user_id"], name: "index_collections_on_user_id"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "address"
@@ -32,6 +41,22 @@ ActiveRecord::Schema.define(version: 20180216215450) do
     t.index ["shop_id"], name: "index_positions_on_shop_id"
   end
 
+  create_table "quiets", force: :cascade do |t|
+    t.float "level"
+    t.integer "user_id"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_quiets_on_shop_id"
+    t.index ["user_id"], name: "index_quiets_on_user_id"
+  end
+
+  create_table "shop_cities", force: :cascade do |t|
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string "name"
     t.string "phone"
@@ -42,6 +67,22 @@ ActiveRecord::Schema.define(version: 20180216215450) do
     t.float "latitude"
     t.float "longitude"
     t.string "address"
+    t.string "open_time"
+    t.integer "shop_city_id"
+    t.string "link"
+    t.float "wifi"
+    t.string "limited_time"
+    t.index ["shop_city_id"], name: "index_shops_on_shop_city_id"
+  end
+
+  create_table "tasties", force: :cascade do |t|
+    t.float "level"
+    t.integer "user_id"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_tasties_on_shop_id"
+    t.index ["user_id"], name: "index_tasties_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

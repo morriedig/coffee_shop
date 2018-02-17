@@ -1,21 +1,28 @@
 namespace :dev do
 
   task fetch_shop: :environment do
-    # Shop.destroy_all
+    Shop.destroy_all
 
     url = "https://cafenomad.tw/api/v1.2/cafes"
     response = RestClient.get(url)
     data = JSON.parse(response.body)
       
     data.each do |i|
-      shop = Shop.create!(
+      shopcity = ShopCity.find_by(city: i["city"])
+
+      if shopcity == nil
+        next
+      end
+      shop = shopcity.shops.create!(
         name: i["name"],
         address: i["address"],
         latitude: i["latitude"],
-        longitude: i["longitude"]
+        longitude: i["longitude"],
+        open_time: i["open_time"],
+        limited_time: i["linited_time"],
+        wifi: i["wifi"],
+        link: i["url"]
       )
-
-      puts shop.name
     end
     puts Shop.count
   end

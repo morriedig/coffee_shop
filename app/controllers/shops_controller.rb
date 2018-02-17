@@ -3,9 +3,9 @@ class ShopsController < ApplicationController
   def index
     # @shops = Shop.all
     if params[:search] != nil
-      @shops = Shop.search(params[:search])
+      @shops = Shop.search(params[:search]).page(params[:page]).per(9)
     else
-      @shops = Shop.all
+      @shops = Shop.all.page(params[:page]).per(9)
     end
   end
 
