@@ -1,5 +1,27 @@
 namespace :dev do
 
+  tack rack_city: :environment do
+    ShopCity.destroy_all
+
+    ShopCity.create!(city: "taipei")
+    ShopCity.create!(city: "keelung")
+    ShopCity.create!(city: "taoyuan")
+    ShopCity.create!(city: "hsinchu")
+    ShopCity.create!(city: "taichung")
+    ShopCity.create!(city: "changhua")
+    ShopCity.create!(city: "yunlin")
+    ShopCity.create!(city: "chiayu")
+    ShopCity.create!(city: "tainan")
+    ShopCity.create!(city: "kaohsiung")
+    ShopCity.create!(city: "pingtung")
+    ShopCity.create!(city: "taitung")
+    ShopCity.create!(city: "hualien")
+    ShopCity.create!(city: "yilan")
+
+    puts ShopCity.count
+
+  end
+
   task fetch_shop: :environment do
     Shop.destroy_all
 

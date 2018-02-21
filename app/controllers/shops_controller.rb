@@ -1,11 +1,11 @@
 class ShopsController < ApplicationController
 
   def index
-    # @shops = Shop.all
+    @shop_cities = ShopCity.all
     if params[:search] != nil
-      @shops = Shop.search(params[:search]).page(params[:page]).per(9)
+      @shops = Shop.search(params[:search]).page(params[:page]).per(15)
     else
-      @shops = Shop.all.page(params[:page]).per(9)
+      @shops = Shop.all.page(params[:page]).per(15)
     end
   end
 

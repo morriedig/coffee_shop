@@ -1,8 +1,24 @@
-<h1>this is show page</h1>
+<div class="container shop_show">
+  <div class="row">
+    <div class="col-6">
+      <h3><%= @shop.name %></h4>
+      <h4>Address : <%= @shop.address %></h4>
+      <h4>Open_time : <%= @shop.open_time %></h4>
+      <h4>Link :
+        <% if @shop.link != nil %>
+          <%= @shop.link %>
+        <% else %>
+          No link
+        <% end %> 
+      </h4>
+      <h6><%= link_to "Back", :back %></h6>
+    </div>
 
-<%= @shop.name %>
-<div id="map" style="width:500px;height:300px">地圖預留</div>
-
+    <div class="col-4">
+      <div id="map" style="width:350px;height:200px">地圖預留</div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
   $(function(){
     handler = Gmaps.build('Google');  
@@ -12,8 +28,17 @@
         markers = handler.addMarkers(<%=raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
-        handler.getMap().setZoom(17);
+        handler.getMap().setZoom(15);
         handler.map.centerOn(<%=raw @hash.to_json %>);
       })
   })
 </script>
+
+<div class="container">
+  
+    <h2>This is its comment</h2>
+    <p>
+      No comment
+    </p>
+  
+</div>
