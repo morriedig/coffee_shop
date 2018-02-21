@@ -3,29 +3,7 @@
 <%= @shop.name %>
 <div id="map" style="width:500px;height:300px">地圖預留</div>
 
-
 <script type="text/javascript">
-        
-  handler = Gmaps.build('Google');  
-  handler.buildMap({ provider: {
-    disableDefaultUI: true
-  }, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(16);
-      handler.map.centerOn(<%= [@shop.latitude, @shop.longitude] %>);
-    })
-  // Gmaps.map.callback = function() {
-  // Gmaps.map.addMarkers([
-  //   {"description": "", "title": "", "sidebar": "", "lng": "", "lat": "", "picture": "", "width": "", "height": ""}
-  //     ]);
-  //   }
-</script>
-
-
-
-<!-- <script type="text/javascript">
   $(function(){
     handler = Gmaps.build('Google');  
     handler.buildMap({ provider: {
@@ -38,5 +16,4 @@
         handler.map.centerOn(<%=raw @hash.to_json %>);
       })
   })
-  
-</script> -->
+</script>
